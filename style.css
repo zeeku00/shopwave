@@ -1,0 +1,364 @@
+/* ---- 1. RESET & BASE ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  background-color: #f0f4f8;
+  color: #001f5b;
+}
+
+/* ---- 2. COLOR VARIABLES ---- */
+:root {
+  --navy:       #001f5b;   /* main navy blue */
+  --navy-mid:   #0a3580;   /* slightly lighter navy */
+  --navy-light: #1a4fa0;   /* button hover navy */
+  --white:      #ffffff;
+  --off-white:  #eef2ff;   /* very light blue-white */
+  --border:     #c0cce8;
+}
+
+/* ---- 3. HEADER / NAVIGATION ---- */
+header {
+  background-color: var(--navy);
+  padding: 18px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255,255,255,0.03) 0px,
+    rgba(255,255,255,0.03) 2px,
+    transparent 2px,
+    transparent 12px
+  );
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--white);
+  letter-spacing: 2px;
+}
+
+.logo span {
+  color: #7fb3ff;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  margin-left: 28px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.3s;
+}
+
+nav a:hover {
+  border-bottom: 2px solid #7fb3ff;
+}
+
+.cart-btn {
+  background-color: var(--white);
+  color: var(--navy);
+  border: none;
+  padding: 9px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 28px;
+}
+
+/* ---- 4. HERO SECTION ---- */
+.hero {
+  background-color: var(--navy-mid);
+  color: var(--white);
+  text-align: center;
+  padding: 90px 20px;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(255,255,255,0.07) 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.05) 0%, transparent 40%);
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #b3caff;
+}
+
+.hero-btn {
+  background-color: var(--white);
+  color: var(--navy);
+  border: none;
+  padding: 14px 40px;
+  font-size: 17px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: background-color 0.3s;
+}
+
+.hero-btn:hover {
+  background-color: #b3caff;
+}
+
+/* ---- 5. CATEGORY BAR ---- */
+.categories {
+  background-color: var(--off-white);
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  padding: 18px;
+  flex-wrap: wrap;
+  border-bottom: 2px solid var(--border);
+}
+
+.cat-btn {
+  background-color: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 9px 22px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s;
+}
+
+.cat-btn:hover,
+.cat-btn.active {
+  background-color: var(--navy-light);
+}
+
+/* ---- 6. SECTION TITLE ---- */
+.section-title {
+  text-align: center;
+  padding: 40px 20px 10px;
+  font-size: 30px;
+  color: var(--navy);
+  letter-spacing: 1px;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--navy-mid);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ---- 7. PRODUCT GRID ---- */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 30px 60px 60px;
+  justify-content: center;
+}
+
+.card {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  width: 240px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 31, 91, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 31, 91, 0.18);
+}
+
+.card-img {
+  width: 100%;
+  height: 180px;
+  background-color: var(--off-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(0,31,91,0.04) 0px,
+    rgba(0,31,91,0.04) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+}
+
+.card-body {
+  padding: 16px;
+}
+
+.card-body h3 {
+  font-size: 16px;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.card-body .price {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--navy-mid);
+  margin-bottom: 10px;
+}
+
+.card-body .old-price {
+  font-size: 13px;
+  color: #999;
+  text-decoration: line-through;
+  margin-left: 6px;
+}
+
+.add-btn {
+  width: 100%;
+  background-color: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s;
+}
+
+.add-btn:hover {
+  background-color: var(--navy-light);
+}
+
+/* ---- 8. BANNER STRIP ---- */
+.banner {
+  background-color: var(--navy);
+  color: var(--white);
+  text-align: center;
+  padding: 50px 20px;
+  background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.banner h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.banner p {
+  font-size: 16px;
+  color: #b3caff;
+  margin-bottom: 24px;
+}
+
+.banner-btn {
+  background-color: var(--white);
+  color: var(--navy);
+  border: none;
+  padding: 12px 36px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.banner-btn:hover {
+  background-color: #b3caff;
+}
+
+/* ---- 9. FEATURES ROW ---- */
+.features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 50px 60px;
+  background-color: var(--off-white);
+}
+
+.feature-box {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 24px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,31,91,0.07);
+}
+
+.feature-box .icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.feature-box h4 {
+  font-size: 15px;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.feature-box p {
+  font-size: 13px;
+  color: #667;
+}
+
+/* ---- 10. FOOTER ---- */
+footer {
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255,255,255,0.03) 0px,
+    rgba(255,255,255,0.03) 2px,
+    transparent 2px,
+    transparent 12px
+  );
+}
+
+.footer-col h4 {
+  font-size: 16px;
+  margin-bottom: 14px;
+  color: #7fb3ff;
+  letter-spacing: 1px;
+}
+
+.footer-col p,
+.footer-col a {
+  font-size: 14px;
+  color: #b3caff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.footer-col a:hover {
+  color: var(--white);
+}
+
+.footer-bottom {
+  background-color: #00123a;
+  color: #7fb3ff;
+  text-align: center;
+  padding: 14px;
+  font-size: 13px;
+}
